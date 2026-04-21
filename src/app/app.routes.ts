@@ -14,10 +14,11 @@ export const routes: Routes = [
     path: 'comics',
     loadComponent: () => import('./pages/comics/comics.page').then(m => m.ComicsPage)
   },
-  {
-    path: 'comic-detail',
-    loadComponent: () => import('./pages/comic-detail/comic-detail.page').then(m => m.ComicDetailPage)
-  },
+ {
+  path: 'comic-detail/:id',
+  loadComponent: () => import('./pages/comic-detail/comic-detail.page').then(m => m.ComicDetailPage)
+}
+,
   {
     path: 'favourites',
     loadComponent: () => import('./pages/favourites/favourites.page').then(m => m.FavouritesPage)

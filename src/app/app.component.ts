@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonMenu, IonList } from '@ionic/angular/standalone';
-import { Storage } from '@ionic/storage-angular';
-
+import { IonApp, IonRouterOutlet, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: 'app.component.html',
-  imports: [IonApp, IonRouterOutlet, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonMenu, IonList],
+  imports: [
+    IonApp,
+    IonRouterOutlet,
+    IonMenu,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonList,
+    IonItem
+  ],
 })
-export class AppComponent {
-  constructor(private storage: Storage) {}
-
-  async ngOnInit(){
-    await this.storage.create();
-  }
-}
+export class AppComponent {}
