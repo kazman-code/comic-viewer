@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ hero?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="hero" fullscreen>
+
+  
+  <div class="hero-banner">
+    <img [src]="hero.images?.lg" />
+  </div>
+
+
+  <div class="fav-btn">
+    <ion-button expand="block" shape="round" (click)="toggleFavourite()">
+      {{ isFavourite() ? '★ Remove from Favourites' : '☆ Add to Favourites' }}
+    </ion-button>
+  </div>
+
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Power Stats</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="stats-grid">
+        <div class="stat" *ngFor="let stat of powerStats">
+          <strong>{{ stat.label }}</strong>
+          <span>{{ stat.value }}</span>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Appearance</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Gender:</strong> {{ hero.appearance?.gender }}</p>
+      <p><strong>Race:</strong> {{ hero.appearance?.race }}</p>
+      <p><strong>Height:</strong> {{ hero.appearance?.height[1] }}</p>
+      <p><strong>Weight:</strong> {{ hero.appearance?.weight[1] }}</p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Biography</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Full Name:</strong> {{ hero.biography?.fullName }}</p>
+      <p><strong>Publisher:</strong> {{ hero.biography?.publisher }}</p>
+      <p><strong>Alignment:</strong> {{ hero.biography?.alignment }}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

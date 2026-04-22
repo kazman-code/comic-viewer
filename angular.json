@@ -28,13 +28,24 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
-              }
-            ],
+           "assets": [
+  {
+    "glob": "**/*",
+    "input": "src/assets",
+    "output": "assets"
+  },
+  {
+    "glob": "manifest.webmanifest",
+    "input": "public",
+    "output": "./"
+  },
+  {
+    "glob": "**/*",
+    "input": "public/icons",
+    "output": "icons"
+  }
+]
+,
             "styles": ["src/global.scss", "src/theme/variables.scss"],
             "scripts": [],
             "browser": "src/main.ts"

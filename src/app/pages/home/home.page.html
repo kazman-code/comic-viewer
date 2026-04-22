@@ -1,20 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-title>SuperHero Viewer Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card style="margin: 16px;">
+    <ion-card-header>
+      <ion-card-title>Welcome to Superhero Viewer</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Browse heroes from brands like Darkhorse, Marvel, and DC, save favourites, and explore details.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" routerLink="/heroes" style="margin: 16px;">
+    View Heroes
+  </ion-button>
+
+  <ion-button expand="block" routerLink="/favourites" color="secondary" style="margin: 16px;">
+    View Favourites
+  </ion-button>
+
 </ion-content>

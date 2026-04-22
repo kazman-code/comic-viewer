@@ -1,0 +1,29 @@
+.hero-banner {
+  width: 100%;
+  text-align: center;
+  background: #111;
+  padding: 20px 0;
+}
+
+.hero-banner img {
+  width: 60%;
+  max-width: 300px;
+  border-radius: 12px;
+}
+
+.fav-btn {
+  padding: 16px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.stat {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+}

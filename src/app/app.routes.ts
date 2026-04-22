@@ -11,14 +11,13 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home.page').then(m => m.HomePage)
   },
   {
-    path: 'comics',
-    loadComponent: () => import('./pages/comics/comics.page').then(m => m.ComicsPage)
+    path: 'heroes',
+    loadComponent: () => import('./pages/heroes/heroes.page').then(m => m.HeroesPage)
   },
- {
-  path: 'comic-detail/:id',
-  loadComponent: () => import('./pages/comic-detail/comic-detail.page').then(m => m.ComicDetailPage)
-}
-,
+  {
+    path: 'hero-detail/:id',
+    loadComponent: () => import('./pages/hero-detail/hero-detail.page').then(m => m.HeroDetailPage)
+  },
   {
     path: 'favourites',
     loadComponent: () => import('./pages/favourites/favourites.page').then(m => m.FavouritesPage)

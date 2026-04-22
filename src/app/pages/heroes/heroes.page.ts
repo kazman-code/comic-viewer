@@ -2,22 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonContent, IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
-import { Comic } from '../../services/comic';
+import { RouterLink } from '@angular/router';
+
+import { Comic } from '../../services/comic.service';
 
 @Component({
-  selector: 'app-comics',
-  templateUrl: './comics.page.html',
-  styleUrls: ['./comics.page.scss'],
+  selector: 'app-heroes',
   standalone: true,
+  templateUrl: './heroes.page.html',
+  styleUrls: ['./heroes.page.scss'],
   imports: [
     IonContent,
     IonHeader,
     IonTitle,
     IonToolbar,
-    CommonModule
+    CommonModule, RouterLink
   ]
 })
-export class ComicsPage implements OnInit {
+export class HeroesPage implements OnInit {
   comics: any[] = [];
   loading = true;
 
@@ -31,6 +33,6 @@ export class ComicsPage implements OnInit {
   }
 
   openDetail(id: number) {
-    this.router.navigate(['/comic-detail', id]);
+    this.router.navigate(['/hero-detail', id]);
   }
 }
