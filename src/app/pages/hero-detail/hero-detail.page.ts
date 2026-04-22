@@ -46,13 +46,14 @@ export class HeroDetailPage implements OnInit {
     });
   }
 
-  toggleFavourite() {
-    if (this.favs.isFavourite(this.id)) {
-      this.favs.remove(this.id);
-    } else {
-      this.favs.add(this.id);
-    }
+ toggleFavourite() {
+  if (this.favs.isFavourite(this.id)) {
+    this.favs.remove(this.id);
+  } else {
+    this.favs.add(this.hero);
   }
+}
+
 
   isFavourite() {
     return this.favs.isFavourite(this.id);

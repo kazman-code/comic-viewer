@@ -6,15 +6,16 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class FavouritesService {
 
-  private favs: number[] = [];
+  private key = 'favourites';
+  private favs: any[] = [];
 
   constructor(private storage: Storage) {
     this.init();
   }
 
   async init() {
-    await this.storage.create();
-    const stored = await this.storage.get('favourites');
+    await (this.storage as any).create();
+    const stored = await (this.storage as any).get(this.key);
     if (stored) {
       this.favs = stored;
     }
@@ -24,17 +25,26 @@ export class FavouritesService {
     return this.favs;
   }
 
-  async add(id: number) {
-    this.favs.push(id);
-    await this.storage.set('favourites', this.favs);
+  async add(hero: any) {
+    const exists = this.favs.some((h: any) => h.id === hero.id);
+    if (!exists) {
+      this.favs.push(hero);
+      await (this.storage as any).set(this.key, this.favs);
+    }
   }
 
   async remove(id: number) {
-    this.favs = this.favs.filter(x => x !== id);
-    await this.storage.set('favourites', this.favs);
+    this.favs = this.favs.filter(h => h.id !== id);
+    await (this.storage as any).set(this.key, this.favs);
   }
+  
+  async clear() {
+  this.favs = [];
+  await (this.storage as any).set(this.key, []);
+}
+
 
   isFavourite(id: number) {
-    return this.favs.includes(id);
+    return this.favs.some(h => h.id === id);
   }
 }

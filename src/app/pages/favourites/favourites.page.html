@@ -6,22 +6,33 @@
 
 <ion-content>
 
-  <ion-list *ngIf="favouriteHeroes.length > 0">
-    <ion-item 
-      button 
-      detail 
-      *ngFor="let hero of favouriteHeroes"
-      (click)="openHero(hero.id)"
-    >
-      <ion-avatar slot="start">
-        <img [src]="hero.images?.sm" />
-      </ion-avatar>
+  <div class="clear-btn" *ngIf="favouriteHeroes.length > 0">
+  <ion-button expand="block" color="danger" (click)="clearAll()">
+    Clear All Favourites
+  </ion-button>
+</div>
 
-      <ion-label>
-        <h2>{{ hero.name }}</h2>
-        <p>{{ hero.biography?.publisher }}</p>
-      </ion-label>
-    </ion-item>
+
+  <ion-list *ngIf="favouriteHeroes.length > 0">
+
+    <ng-container *ngFor="let hero of favouriteHeroes">
+      <ion-item 
+        button 
+        detail 
+        *ngIf="hero && hero.id"
+        (click)="openHero(hero.id)"
+      >
+        <ion-avatar slot="start">
+          <img [src]="hero.images?.sm" />
+        </ion-avatar>
+
+        <ion-label>
+          <h2>{{ hero.name }}</h2>
+          <p>{{ hero.biography?.publisher }}</p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
   </ion-list>
 
   <div *ngIf="favouriteHeroes.length === 0" class="empty">
