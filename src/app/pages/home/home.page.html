@@ -1,26 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>SuperHero Viewer Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding">
 
-  <ion-card style="margin: 16px;">
-    <ion-card-header>
-      <ion-card-title>Welcome to Superhero Viewer</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      Browse heroes from brands like Darkhorse, Marvel, and DC, save favourites, and explore details.
-    </ion-card-content>
-  </ion-card>
 
-  <ion-button expand="block" routerLink="/heroes" style="margin: 16px;">
-    View Heroes
-  </ion-button>
+  <div class="button-container">
+    <ion-button expand="block" routerLink="/heroes">
+      View Heroes
+    </ion-button>
 
-  <ion-button expand="block" routerLink="/favourites" color="secondary" style="margin: 16px;">
-    View Favourites
-  </ion-button>
+    <ion-button expand="block" routerLink="/favourites" color="secondary">
+      View Favourites
+    </ion-button>
+  </div>
+
+  
+  <h2 class="section-title">Popular Characters</h2>
+
+  
+  <div class="character-grid">
+    <div 
+      class="character-card"
+      *ngFor="let hero of characters"
+      (click)="openHero(hero.id)"
+    >
+      <img [src]="hero.images.sm" alt="{{ hero.name }}">
+      <p>{{ hero.name }}</p>
+    </div>
+  </div>
 
 </ion-content>
